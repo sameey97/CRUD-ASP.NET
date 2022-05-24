@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PatientApp.Models.PatientModelView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Blood_Group)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blood_Group)
+            </td>
+            <td>
+                @Html.ActionLink("Edit Patient", "UpdatePatient", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Fetch_patient", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
+
+</table>
